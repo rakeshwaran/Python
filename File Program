@@ -1,0 +1,18 @@
+import re	
+from collections import Counter
+
+f = open (r'C:\Python27\data.txt', 'r')
+data = f.read()
+lines= data.split()
+stops = 0
+paragraph = data.split("\n\n")
+print ('Paragraph:',len(paragraph))
+
+for stop in lines:
+    stops = stops + stop.count('.')
+print ('Total Sentence:',stops) 
+
+print('Average word length is:',len(lines)/stops)
+
+words = re.findall(r'\w+', open('data.txt').read().lower())
+print(Counter(words).most_common(20))
